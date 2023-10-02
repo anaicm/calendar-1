@@ -1,0 +1,296 @@
+/*-----------------------Reestablecimiento básico--------------------------------------------------------*/
+*, ::after,::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;/*Herencia*/
+}
+html{
+  /*Fuente raiz*/
+  font-size: 10px; /* 10px en relación con 14px en el body */
+}
+body{
+  font-size: 14px;
+  box-sizing: border-box;/*todos los elementos heredan*/
+  color:#F0F2F3;
+  font-family: sans-serif;/*Cambiar tipo de letra-********/
+  background-color: #497797;/*Cambiar fondo************/
+  line-height: 1.7;
+  border-collapse: collapse; /* Combina los bordes de las celdas para formar una cuadrícula */
+}
+/*-------------------------Cabecera principal----------------------------------------------------------*/
+header{
+  
+  height: 6rem;/*(60px)*/
+}
+.container {
+  background-color: #497797; /* Color de fondo de la primera capa*********************** */
+  display: flex;
+  align-items: center;
+ 
+  padding: 1rem;/*(10px)*/
+}
+
+.capa1 {
+  flex: 1; /* Toma todo el espacio disponible en la primera capa */
+}
+
+.capa2 {
+  margin-right: 1rem;/*(10px)*/ /* Margen derecho de 10px */
+}
+
+.capa3 {
+ 
+  margin-left: calc(1% + 1rem); /* Margen izquierdo del 1% + 10px */
+}
+
+.capa4 {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;/*(10px)*/ /* Margen izquierdo de 10px */
+  margin-top: -3rem;/*(-30px)*/
+  margin-right: -.8rem;/*(-8px)*/
+}
+.img-tam-aspa{
+  width: 4rem;/*40px*/
+  padding-right: 1.5rem; /*15px*/
+}
+.img-tam-expandir{
+  width: 3.2rem;/*(32px)*/
+  padding-right: 1.5rem; /*15px*/
+}
+.img-tam-calendario{
+  width: 5rem;/*(50px)*/
+}
+.capa2 img,
+.capa4 img,
+.img-flech-top,
+.img-flech-bottom {
+  filter: invert(100%); /* Cambiar el color de la imagen a blanco */
+}
+/*----------------------------barra calendario-------------------------------------------*/
+.nav-calendario {/*da la forma de la caja en App.js*/
+  height: 5.5rem;/*(55px)*/
+  background-color: #304858; 
+  color: #748662; 
+  text-align: center; /* Alinea el contenido al centro si es necesario */
+  margin-top: 0; /* Establece un margen negativo para que se sitúe justo debajo del header */
+  align-items: center;
+  
+ 
+}
+
+.text-box {
+  
+  display: flex; /* Utiliza un contenedor flexible para alinear los elementos en línea */
+  align-items: center; /* Centra verticalmente los elementos en el contenedor */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  flex-grow: 1; /*para que ocupe todo el ancho de la pantalla*/
+ 
+}
+.btn{/*Botón principal*/
+  color:rgb(91, 85, 85);
+  text-decoration: none;
+  margin-right: 5.7rem;/*(57px)*/
+  flex-grow: 1; /* Permite que los elementos ocupen todo el espacio disponible */
+  text-align: center;
+  margin-top: 1.7rem;/*(17px)*/
+  cursor: pointer;
+}
+.selected{/*Mes seleccionado*/
+  color: #a0abb2;
+ 
+}
+
+.img-flech-top,
+.img-flech-bottom {
+    display: block;
+    width: 1.5rem;/*(15px)*/
+    margin-left: 2rem;/*(20px)*/
+    margin-right: 1rem;/*(10px)*/
+    
+}
+.img-flech-top{
+  transform: rotate(90deg); 
+  margin-bottom: .5rem;/*(5px)*/
+}
+.img-flech-bottom{
+  transform: rotate(-90deg);/*(5px)*/ 
+  margin-top: .5rem;
+}
+/*-------------------------------------------------tabla-------------------------------------*/
+.body-calendar{
+  padding: 2.5%;
+}
+table {
+  width:100%;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+  border-collapse: collapse;
+  
+}
+th {
+  border: none; /* Quita los bordes de las celdas de encabezado */
+  text-align: center; /* Alinea el texto a la izquierda */
+  color:rgb(91, 85, 85); 
+}
+td {
+  border: 1px solid rgb(91, 85, 85);
+  
+  text-align: left;
+  vertical-align: top; /* Alinea el contenido en la parte superior de la celda */
+  padding: 0px 5px 5px 5px;
+  width: 45px;
+  height: 100px; /* Establece una altura fija para las celdas */
+  overflow: hidden; /* Controla el contenido adicional, oculta lo que no cabe */
+  position: relative; /* Agregamos posición relativa para manejar el contenido absoluto */
+  
+}
+.box-input {
+  font-size: 9px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #153C51;
+  color: #F0F2F3;
+  border-radius: 5px;
+  padding: 5px;
+
+  box-sizing: border-box;
+  margin-top:5px;
+}
+
+input {
+  background-color: #153C51; /* Establece el color de fondo deseado */
+  color: white; /* Establece el color de texto deseado */
+  border: none; /* Elimina el borde */
+  outline: none; /* Elimina el resaltado al hacer clic */
+  padding: 0; /* Elimina cualquier relleno interno */
+  margin: 0; /* Elimina cualquier margen */
+}
+
+.box-input-rojo{
+  border: 2px solid #912433;
+
+}
+.box-input-amarillo{
+  border: 2px solid #939819;
+ 
+ }
+ .box-input-azul{
+  border: 2px solid #0678C1;
+
+}
+.box-input-morado{
+  border: 2px solid #7C3198;
+ 
+ }
+ /*------------scroll---------------*/
+ .scroll-container {
+  max-height: 200px; /* Altura máxima para mostrar el contenido con desplazamiento */
+  overflow-y: auto; /* Habilita el desplazamiento vertical cuando sea necesario */
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 6px; /* Ancho del scroll */
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color del pulgar del scroll */
+  border-radius: 3px; /* Borde redondeado del pulgar del scroll */
+}
+
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color del pulgar del scroll al pasar el mouse */
+}
+ /*-----------------------------------------------------------------Leyenda---------------------------------------*/
+ .box-leyenda{
+  margin-top: 10px;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+ }
+ .leyenda{
+  display: inline;
+  padding-right: 10px;
+  margin-bottom: 10px;
+ }
+ .input-check{
+  width: 24px;
+  height: 24px; /* Ajusta el tamaño según tus necesidades */
+  margin-left: 10px;
+ }
+ 
+/* Estilo para las celdas que contienen eventos */
+/* Estilo para las celdas que contienen eventos */
+.cell-with-events {
+  max-height: 100px;
+  overflow-y: auto; /* Agregar una barra de desplazamiento vertical cuando los eventos no quepan */
+  overflow-x: hidden;
+  position: relative; /* Añade posición relativa para los elementos absolutos */
+  -webkit-mask-image: linear-gradient(to top, transparent 25%, black 75%);
+  mask-image: linear-gradient(to top, transparent 25%, black 75%);
+}
+
+
+
+
+/* Estilo para los eventos dentro de las celdas */
+.cell-event {
+  margin: 2px 0; /* Añade espacio entre eventos */
+  /* Añade cualquier otro estilo que desees para los eventos individuales */
+}
+
+.day-number {
+  position: absolute;
+  left: 9px;
+  bottom: 0px;
+  
+}
+
+/*------------------------medias querys-----------------------------*/
+
+  
+  /*table {/*fija la tabla a la pantalla, se puede usar para todas las medidas--
+    width:100%;
+    table-layout: fixed;
+    overflow-wrap: break-word;
+  }*/
+  /* Estilos para tabletas */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 12px; /* Ajusta el tamaño de fuente para tabletas */
+  }
+  .img-tam-aspa,
+  .img-tam-expandir {
+    width: 2.5rem; /* Reduce el tamaño de las imágenes */
+    padding-right: 1rem; /* Reduce el espaciado entre las imágenes */
+  }
+  .btn {
+    margin-right: 0; /* Elimina el margen derecho en el botón */
+    margin-top: 1rem; /* Ajusta el margen superior del botón */
+  }
+  .scroll-container {
+    max-height: 150px; /* Reduce la altura máxima del contenedor de desplazamiento */
+  }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 10px; /* Ajusta el tamaño de fuente para dispositivos móviles */
+  }
+  .box-input {
+    width: 100%; /* Ajusta el ancho de los elementos de entrada al 100% del contenedor */
+  }
+  .box-leyenda {
+    position: static; /* Restablece la posición de la leyenda para que fluya naturalmente */
+    text-align: center; /* Centra la leyenda */
+  }
+  .day-number {
+    left: auto; /* Restablece la posición del número de día */
+    bottom: auto;
+  }
+  
+
+}
